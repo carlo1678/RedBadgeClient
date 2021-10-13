@@ -9,6 +9,7 @@ import { Switch, Route } from "react-router-dom";
 import SongSearch from "./components/SongSearch";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Favorites from "./components/Favorites";
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +65,9 @@ class App extends React.Component {
           </Route>
           <Route exact path="/songs">
             <SongSearch sessionToken={this.state.sessionToken} />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites sessionToken={this.state.sessionToken} />
           </Route>
         </Switch>
         {/* <LandingPage /> */}
