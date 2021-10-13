@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Navbar } from "react-bootstrap/";
-import { Nav } from "react-bootstrap/";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
@@ -26,10 +26,7 @@ export default class NavigationBar extends Component {
               <Link className="navlinks" to="/songs">
                 Song Search!
               </Link>
-              <Link className="navlinks" to="/games">
-                Profile
-              </Link>
-              <Link className="navlinks" to="/music">
+              <Link className="navlinks" to="/playlist">
                 Playlists
               </Link>
               <Link className="favorites" to="/favorites">

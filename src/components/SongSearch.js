@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Card, Button, CardTitle, CardText, Row, Col } from "reactstrap";
 
 export default class SongSearch extends Component {
   constructor(props) {
@@ -79,13 +80,27 @@ export default class SongSearch extends Component {
           value={this.state.artistName}
         ></input>
         <button onClick={() => this.getSongs()}>Search!</button>
-        <div className="songInfo">
+        {/* <div className="songInfo">
           <h3>{this.state.songInfo.name}</h3>
           <p>{this.state.songInfo.url}</p>
           <img src={this.state.songInfo.image} alt="Artist"></img>
           <p>{this.state.songInfo.summary}</p>
           <button onClick={this.addFavorite}>Add to Favorites!</button>
         </div>
+      </div> */}
+        <Card body>
+          <CardTitle tag="h5">{this.state.songInfo.name}</CardTitle>
+          <CardText>{this.state.songInfo.url}</CardText>
+          <img className="songPic" src={this.state.songInfo.image}></img>
+          <CardText>{this.state.songInfo.summary}</CardText>
+          <Button
+            className="picButton"
+            color="primary"
+            onClick={this.addFavorite}
+          >
+            Add to Favorites!
+          </Button>
+        </Card>
       </div>
     );
   }

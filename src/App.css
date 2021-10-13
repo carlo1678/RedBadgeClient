@@ -1,42 +1,55 @@
-.navlinks {
+.App {
+  text-align: center;
+  background-color: lightblue;
+  height: 100vh;
+}
+
+.songPic {
+  display: flex;
+  align-items: center;
+  height: 300px;
+  width: 300px;
   margin: auto;
 }
 
-.App {
-  text-align: center;
+.picButton {
+  width: 50%;
+  margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-primary {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100vw;
+  background-color: lightgrey;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mainNav {
+  display: flex !important;
+  justify-content: center !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.commerce {
+  font-size: 25px;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.App-link {
-  color: #61dafb;
+.navlinks {
+  font-size: 20px;
+  margin: auto;
+  padding: 2%;
+  color: #14213d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logoutButton {
+  font-size: 20px;
+  margin: 5%;
+  padding: 2%;
+  color: #14213d;
+}
+
+#logoutButton {
+  background-color: #14213d;
+  color: #e5e4e2;
 }
