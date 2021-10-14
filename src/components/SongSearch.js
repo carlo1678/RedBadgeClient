@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Button, CardTitle, CardText, Row, Col } from "reactstrap";
+import ErrorPage from "./ErrorPage";
 
 export default class SongSearch extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class SongSearch extends Component {
       `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=e928437a23fd16cc7f4a92e24c210f84&artist=${this.state.artistName}&track=${this.state.songName}&format=json`
     );
     const json = await response.json();
+    if (json === undefined) return <ErrorPage />;
     const name = json.track.name;
     const url = json.track.url;
     const image = json.track.album.image[3]["#text"];
@@ -29,7 +31,7 @@ export default class SongSearch extends Component {
     //     this.setState({ image: actualImage })
     //   };
     // });
-    console.log(json.track.url);
+
     const summary = json.track.wiki.summary;
     this.setState({
       songInfo: {

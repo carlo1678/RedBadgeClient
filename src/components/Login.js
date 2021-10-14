@@ -28,6 +28,9 @@ export default class Login extends Component {
       .then((data) => {
         console.log(data);
         this.props.updateToken(data.sessionToken);
+      })
+      .catch((err) => {
+        alert(err);
       });
   }
 

@@ -54,20 +54,31 @@ export default class Favorites extends Component {
   //   this.setState({ songId: newSongId });
   // };
 
+  // handleOnChange = (url, value, id) => {
+  //   const { value } = e.target;
+  //   console.log(value);
+  //   url.id === id && this.setState({ comment: value });
+  // };
+
   render() {
     return (
       <div>
         <h1>Your Favorites!</h1>
-        {this.state.results.map((url) => {
+        {this.state.results.map((url, id) => {
           return (
             <div>
               <ol>
                 <a href={url.url}>{url.url}</a>
                 <form onSubmit={(e) => this.addComment(e)}>
                   <input
+                    key={id}
                     placeholder="Add Comment Here!"
+                    // onChange={(e, id) =>
+                    //   url.id === id && this.setState({ comment: e.target.value })
+                    // }
                     onChange={(e) => this.setState({ comment: e.target.value })}
                     value={this.state.comment}
+                    type="text"
                   ></input>
                   <button type="submit">Add Comment!</button>
                 </form>

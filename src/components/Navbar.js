@@ -26,9 +26,6 @@ export default class NavigationBar extends Component {
               <Link className="navlinks" to="/songs">
                 Song Search!
               </Link>
-              <Link className="navlinks" to="/playlist">
-                Playlists
-              </Link>
               <Link className="favorites" to="/favorites">
                 Favorites
               </Link>

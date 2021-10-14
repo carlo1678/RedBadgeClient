@@ -10,7 +10,6 @@ import SongSearch from "./components/SongSearch";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Favorites from "./components/Favorites";
-import Playlist from "./components/Playlist";
 
 class App extends React.Component {
   constructor(props) {
@@ -69,9 +68,6 @@ class App extends React.Component {
           </Route>
           <Route exact path="/favorites">
             <Favorites sessionToken={this.state.sessionToken} />
-          </Route>
-          <Route exact path="/playlist">
-            <Playlist sessionToken={this.state.sessionToken} />
           </Route>
         </Switch>
         {/* <LandingPage /> */}
