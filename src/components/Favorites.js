@@ -5,7 +5,7 @@ export default class Favorites extends Component {
     super(props);
     this.state = {
       results: [],
-      songUrl: "",
+      comment: "",
     };
   }
 
@@ -27,25 +27,31 @@ export default class Favorites extends Component {
 
   // Write a function, grab the id from the song that needs to be added to the playlist, then that Id gets inserted into the fetch.
 
-  // addToPlaylist = (e) => {
-  //   e.preventDefault();
-  //   fetch(`http://localhost:3001/playlist/addSong/${song.id}`, {
-  //     method: "POST",
-  //     headers: new Headers({
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${this.props.sessionToken}`,
-  //     }),
-  //     // body: JSON.stringify({
-  //     //   playlist: {
-  //     //     songUrl: this.state.songUrl,
-  //     //   },
-  //     // }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(this.state.results);
-  //       this.setState({ songUrl: data.songUrl });
-  //     });
+  addComment = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:3001/comments/add/`, {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.props.sessionToken}`,
+      }),
+      body: JSON.stringify({
+        comments: {
+          comment: this.state.comment,
+        },
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Succesfully Added Comment!");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  // updateSongId = (newSongId) => {
+  //   this.setState({ songId: newSongId });
   // };
 
   render() {
@@ -54,10 +60,19 @@ export default class Favorites extends Component {
         <h1>Your Favorites!</h1>
         {this.state.results.map((url) => {
           return (
-            <ol>
-              <a href={url.url}>{url.url}</a>
-              <button onClick={this.addToPlaylist}>Add to Playlist!</button>
-            </ol>
+            <div>
+              <ol>
+                <a href={url.url}>{url.url}</a>
+                <form onSubmit={(e) => this.addComment(e)}>
+                  <input
+                    placeholder="Add Comment Here!"
+                    onChange={(e) => this.setState({ comment: e.target.value })}
+                    value={this.state.comment}
+                  ></input>
+                  <button type="submit">Add Comment!</button>
+                </form>
+              </ol>
+            </div>
           );
         })}
         <button onClick={this.displayFavorites}>Grab Favorites</button>

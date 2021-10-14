@@ -45,9 +45,6 @@ export default class Signup extends Component {
               onChange={(e) => this.setState({ email: e.target.value })}
               value={this.state.email}
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -56,6 +53,7 @@ export default class Signup extends Component {
               className="formInputs"
               type="password"
               placeholder="Password"
+              min="5"
               onChange={(e) => this.setState({ password: e.target.value })}
               value={this.state.password}
             />
